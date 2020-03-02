@@ -76,6 +76,7 @@ class GhostBottleneck(nn.Module):
 class Model(nn.Module):
     def __init__(self, classes=1000, wd=1):
         super(Model, self).__init__()
+        self.loss_func = nn.CrossEntropyLoss()
         self.relu = nn.ReLU(inplace=True)
         self.conv1 = nn.Conv2d(3, 16*wd, kernel_size=3, padding=1, stride=2, bias=False)
         self.bn1 = nn.BatchNorm2d(16*wd)
