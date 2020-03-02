@@ -1,39 +1,34 @@
 {
-    "dataset": "mnist",
+    "dataset": "cifar10",
     "model": "ghostnet",
-    "root_train": "D:\\dataset\\mnist",
-    "root_eval": "D:\\dataset\\mnist",
-
+    "root_train": "D:\\dataset\\cifar10",
+    "root_eval": "D:\\dataset\\cifar10",
     "load": false,
     "save": true,
     "device": [0],
     "num_workers": 0,
-
     "nbatch_train": 100,
     "nbatch_eval": 100,
-    "epoches": 6,
-
+    "epoches": 40,
     "optimizer": "adam",
     "lr_base": 0.001,
     "lr_gamma": 0.1,
-    "lr_schedule": [2000, 3000],
+    "lr_schedule": [16000, 18000],
     "momentum": 0.5,
     "weight_decay": 0.0001,
     "grad_clip": 20,
     "warmup_iter": 0,
     "warmup_factor": 0.33,
-
-    "img_scale_min": 0.7,
-
+    "img_scale_min": 0.9,
     "augmentation": true,
-    "random_xflip": {"probability": 0},
+    "random_xflip": {"probability": 0.5},
     "random_color": {
-        "probability": 0,
+        "probability": 0.5,
         "brightness": 0.15,
         "contrast": 0.15,
         "saturation": 0.15,
         "hue": 0.15
     },
     "random_rotation": {"probability": 0.5, "degrees": 20},
-    "random_crop": {"probability": 0.5, "size": 26, "padding": 5}
+    "random_crop": {"probability": 0.5, "size": 28, "padding": 5}
 }
