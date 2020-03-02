@@ -8,6 +8,7 @@ acc = []
 for i in range(len(log)):
     acc.append(log[i][0])
 
+plt.grid()
 plt.plot(acc, color='r', label='acc')
 plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
                ncol=3, mode='expand', borderaxespad=0.)
