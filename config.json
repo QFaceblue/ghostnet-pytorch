@@ -1,8 +1,8 @@
 {
     "dataset": "cifar10",
     "model": "ghostnet",
-    "root_train": "D:\\dataset\\cifar10",
-    "root_eval": "D:\\dataset\\cifar10",
+    "root_train": "/home1/xyt/dataset/cifar10",
+    "root_eval": "/home1/xyt/dataset/cifar10",
     "load": false,
     "save": true,
     "device": [0],
