@@ -73,9 +73,9 @@ class GhostBottleneck(nn.Module):
 
 
 
-class GhostNet(nn.Module):
-    def __init__(self, num_classes=1000, wd=1):
-        super(GhostNet, self).__init__()
+class Model(nn.Module):
+    def __init__(self, classes=1000, wd=1):
+        super(Model, self).__init__()
         self.relu = nn.ReLU(inplace=True)
         self.conv1 = nn.Conv2d(3, 16*wd, kernel_size=3, padding=1, stride=2, bias=False)
         self.bn1 = nn.BatchNorm2d(16*wd)
@@ -110,7 +110,7 @@ class GhostNet(nn.Module):
         # fc
         self.out_fn = [40*wd, 112*wd, 160*wd]
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
-        self.fc = nn.Linear(160*wd, num_classes)
+        self.fc = nn.Linear(160*wd, classes)
         # init
         self._initialize_weights()
 
@@ -134,8 +134,9 @@ class GhostNet(nn.Module):
                 m.bias.data.zero_()
 
 
+
 if __name__ == '__main__':
-    net = GhostNet(wd=1)
+    net = Model(wd=1)
     x = torch.rand(2,3,224,224)
     out = net(x)
     print(out.shape)
