@@ -142,6 +142,8 @@ class Model(nn.Module):
 
 if __name__ == '__main__':
     net = Model(wd=1)
+    total_num = sum(p.numel() for p in net.parameters())/1024/1024
+    print('param:', total_num, 'M')
     x = torch.rand(2,3,224,224)
     out = net(x)
     print(out.shape)
