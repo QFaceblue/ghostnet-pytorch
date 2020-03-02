@@ -108,6 +108,9 @@ class Model(nn.Module):
             GhostBottleneck(160*wd, 960*wd, 160*wd, kernel_size=5, stride=1, use_se=0),
             GhostBottleneck(160*wd, 960*wd, 160*wd, kernel_size=5, stride=1, use_se=1)]
         self.block5 = nn.Sequential(*block5)
+        # conv last
+        self.conv2 = nn.Conv2d(160*wd, 960*wd, kernel_size=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(960*wd)
         # fc
         self.out_fn = [40*wd, 112*wd, 160*wd]
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
@@ -121,6 +124,7 @@ class Model(nn.Module):
         x = self.block3(x)
         x = self.block4(x)
         x = self.block5(x)
+        x = self.relu(self.bn2(self.conv2(x)))
         x = self.avg_pool(x)
         x = x.view(x.shape[0], -1)
         x = self.fc(x)
