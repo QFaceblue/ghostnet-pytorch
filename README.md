@@ -3,13 +3,13 @@ unofficial implementation of GhostNet in PyTorch: https://arxiv.org/pdf/1911.119
 
 
 
-#### CIFAR10
+### CIFAR10
 1. **copy** *configs/cifar10.json* **to** *config.json*
-2. python run_train.py
-3. python run_analyze.py
+2. **python** run_train.py
+3. **python** run_analyze.py
 
 
-#### ImageNet
+### ImageNet
 1. **copy** *configs/imagenet.json* **to** *config.json*
-2. python run_train.py
-3. python run_analyze.py
+2. **python** run_train.py
+3. **python** run_analyze.py
