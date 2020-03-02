@@ -69,7 +69,7 @@ class GhostBottleneck(nn.Module):
         x2 = self.bn2c(self.conv2c(x1))
         x = torch.cat([x1,x2], dim=1)
         x = x + res
-        return self.relu(x)
+        return x
 
 
 
