@@ -114,7 +114,7 @@ class Model(nn.Module):
         # fc
         self.out_fn = [40*wd, 112*wd, 160*wd]
         self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
-        self.fc = nn.Linear(160*wd, classes)
+        self.fc = nn.Linear(960*wd, classes)
         # init
         self._initialize_weights()
 
