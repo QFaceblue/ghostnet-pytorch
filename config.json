@@ -4,8 +4,8 @@
     "root_train": "D:\\dataset\\mnist",
     "root_eval": "D:\\dataset\\mnist",
 
-    "load": true,
-    "save": false,
+    "load": false,
+    "save": true,
     "device": [0],
     "num_workers": 0,
 

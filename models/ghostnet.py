@@ -114,7 +114,7 @@ class Model(nn.Module):
         # init
         self._initialize_weights()
 
-    def forward(self, x):
+    def forward(self, x, y=None):
         x = self.relu(self.bn1(self.conv1(x)))
         x = self.block12(x)
         x = self.block3(x)
@@ -123,7 +123,11 @@ class Model(nn.Module):
         x = self.avg_pool(x)
         x = x.view(x.shape[0], -1)
         x = self.fc(x)
-        return x
+        if y is not None:
+            return self.loss_func(x, y)
+        else:
+            return torch.argmax(x, dim=1) # (batch_size)
+        # return x
 
     def _initialize_weights(self):
         for m in self.modules():
