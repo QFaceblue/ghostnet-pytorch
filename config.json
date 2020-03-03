@@ -1,6 +1,6 @@
 {
     "dataset": "cifar10",
-    "model": "ghostnet",
+    "model": "official",
     "root_train": "/home1/xyt/dataset/cifar10",
     "root_eval": "/home1/xyt/dataset/cifar10",
     "load": false,
